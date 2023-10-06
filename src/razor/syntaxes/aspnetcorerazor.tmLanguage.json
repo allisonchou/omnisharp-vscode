@@ -106,7 +106,7 @@
           "include": "#text-tag"
         },
         {
-          "include": "#wellformed-html"
+          "include": "text.html.basic#tags-valid"
         },
         {
           "include": "#razor-single-line-markup"
@@ -146,7 +146,7 @@
       },
       "patterns": [
         {
-          "include": "#wellformed-html"
+          "include": "text.html.basic#tags-valid"
         },
         {
           "include": "$self"
@@ -188,102 +188,6 @@
           ]
         }
       }
-    },
-    "wellformed-html": {
-      "patterns": [
-        {
-          "include": "#void-tag"
-        },
-        {
-          "include": "#non-void-tag"
-        }
-      ]
-    },
-    "void-tag": {
-      "name": "meta.tag.structure.$3.void.html",
-      "begin": "(?i)(<)(!)?(area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)(?=\\s|/?>)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "constant.character.escape.razor.tagHelperOptOut"
-        },
-        "3": {
-          "name": "entity.name.tag.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "text.html.basic#attribute"
-        }
-      ],
-      "end": "/?>",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      }
-    },
-    "non-void-tag": {
-      "begin": "(?=<(!)?([^/\\s>]+)(\\s|/?>))",
-      "end": "(</)(\\2)\\s*(>)|(/>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.html"
-        },
-        "3": {
-          "name": "punctuation.definition.tag.end.html"
-        },
-        "4": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "begin": "(<)(!)?([^/\\s>]+)(?=\\s|/?>)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.tag.begin.html"
-            },
-            "2": {
-              "name": "constant.character.escape.razor.tagHelperOptOut"
-            },
-            "3": {
-              "name": "entity.name.tag.html"
-            }
-          },
-          "end": "(?=/?>)",
-          "patterns": [
-            {
-              "include": "#razor-control-structures"
-            },
-            {
-              "include": "text.html.basic#attribute"
-            }
-          ]
-        },
-        {
-          "begin": ">",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.tag.end.html"
-            }
-          },
-          "end": "(?=</)",
-          "patterns": [
-            {
-              "include": "#wellformed-html"
-            },
-            {
-              "include": "$self"
-            }
-          ]
-        }
-      ]
     },
     "explicit-razor-expression": {
       "name": "meta.expression.explicit.cshtml",
