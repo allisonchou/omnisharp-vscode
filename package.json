@@ -4813,7 +4813,7 @@
         "description": "A Razor component element"
       },
       {
-        "id": "razorComponentAttribute",
+        "id": "RazorComponentAttribute",
         "description": "A Razor component attribute"
       },
       {
@@ -4863,6 +4863,14 @@
       {
         "id": "markupAttribute",
         "description": "The name of a Markup attribute."
+      },
+      {
+        "id": "markupAttributeQuote",
+        "description": "A token that represents an attribute quote in a Markup attribute."
+      },
+      {
+        "id": "markupAttributeQuote",
+        "description": "The value of a Markup attribute."
       },
       {
         "id": "markupComment",
@@ -5119,7 +5127,7 @@
           "razorComponentElement": [
             "entity.name.class.element.component"
           ],
-          "razorComponentAttribute": [
+          "RazorComponentAttribute": [
             "entity.name.class.attribute.component"
           ],
           "razorTagHelperElement": [
@@ -5168,6 +5176,12 @@
           ],
           "markupAttribute": [
             "entity.other.attribute-name.html"
+          ],
+          "markupAttributeQuote": [
+            "string.quoted.double.html"
+          ],
+          "markupAttributeValue": [
+            "string.quoted.double.html"
           ],
           "markupComment": [
             "comment.block.html"
@@ -5533,9 +5547,7 @@
         "scopeName": "text.aspnetcorerazor",
         "path": "./src/razor/syntaxes/aspnetcorerazor.tmLanguage.json",
         "unbalancedBracketScopes": [
-          "keyword.operator.arrow.cs",
-          "keyword.operator.bitwise.shift.cs",
-          "keyword.operator.relational.cs"
+          "text.aspnetcorerazor"
         ]
       }
     ],

@@ -72,6 +72,10 @@
       "match": "@",
       "name": "keyword.control.cshtml.transition"
     },
+    "razor-all": {
+      "name": "keyword.control.cshtml",
+      "match": "*"
+    },
     "razor-codeblock": {
       "name": "meta.structure.razor.codeblock",
       "begin": "(@)(\\{)",
@@ -102,6 +106,9 @@
     },
     "razor-codeblock-body": {
       "patterns": [
+        {
+          "include": "#razor-all"
+        },
         {
           "include": "#text-tag"
         },
@@ -303,6 +310,9 @@
       "patterns": [
         {
           "include": "source.cs#expression"
+        },
+        {
+          "include": "text.html.basic"
         }
       ],
       "end": "\\)",
